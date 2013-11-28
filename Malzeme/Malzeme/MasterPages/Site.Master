@@ -1,0 +1,352 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="Template.Web.MasterPages.Site" %>
+
+<%@ Register TagPrefix="uc" TagName="MainTab" Src="~/UserControls/MainTab.ascx" %>
+<%@ Register TagPrefix="uc" TagName="SectionPane" Src="~/UserControls/SectionPane.ascx" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head id="Head1" runat="server">
+    <title></title>
+    <link href="~/Styles/Site.css" rel="stylesheet" type="text/css" />
+    <script type="text/javascript" src="../Scripts/jquery-1.4.1.min.js"></script>
+    <script type="text/javascript" src="../Scripts/jquery-1.4.1-vsdoc.js"></script>
+    <script type="text/javascript" src="../Scripts/cookie.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            var isClosed = $.cookie("leftPaneClosed") == "1";
+
+            if (isClosed)
+                $(".tplp").hide();
+
+            $("#imgCollapse").click(function () {
+                var isClosed = $.cookie("leftPaneClosed") == "1";
+
+                if (!isClosed) {
+                    $(".tplp").hide();
+                    $.cookie("leftPaneClosed", "1");
+                } else {
+                    $(".tplp").show();
+                    $.cookie("leftPaneClosed", "0");
+                }
+            });
+        });        
+
+        
+    
+    </script>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="Form1" runat="server">
+    <table style="width: 100%; border-collapse: collapse" border="0" cellspacing="0"
+        cellpadding="0">
+        <tr>
+            <td>
+                <table style="width: 100%; table-layout: fixed" cellspacing="0" cellpadding="0">
+                    <tr>
+                        <td style="width: 224px; height: 56px">
+                            <table class="pght" cellspacing="0" cellpadding="0">
+                                <tr style="height: 54px">
+                                    <td>
+                                        &nbsp;</td>
+                                </tr>
+                                <tr style="height: 2px">
+                                    <td class="pghiul">
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                        <td style="height: 56px">
+                            <table class="pghbg" cellspacing="0" cellpadding="0">
+                                <tr style="height: 20px">
+                                    <td style="width: 2px" rowspan="2">
+                                    </td>
+                                    <td style="padding-bottom: 2px; padding-left: 2px; padding-right: 2px; padding-top: 2px"
+                                        valign="top" align="right">
+                                    </td>
+                                    <td style="width: 2px" rowspan="2">
+                                    </td>
+                                </tr>
+                                <tr style="height: 34px" valign="bottom">
+                                    <td rowspan="2">
+                                        <uc:MainTab ID="MainTab1" runat="server" />
+                                    </td>
+                                </tr>
+                                <tr style="height: 2px">
+                                    <td class="pghbl">
+                                    </td>
+                                    <td class="pghbl">
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+                <table style="width: 100%; table-layout: fixed; height: 62px" cellspacing="0" cellpadding="0">
+                    <tr>
+                        <td class="ipbl">
+                        </td>
+                        <td class="ipbrp">
+                            <table id="hdlt" class="hdlt" border="0" cellspacing="0" cellpadding="0">
+                                <tr style="height: 24px" valign="center">
+                                    <td style="width: 3px" rowspan="3">
+                                    </td>
+                                    <td>
+                                        <table style="width: 100%; table-layout: fixed" class="ip" cellspacing="0" cellpadding="0">
+                                            <tr>
+                                                <td style="width: 140px">
+                                                    <div style="text-overflow: ellipsis; white-space: nowrap; overflow: hidden" title="Administrator @ ebimsc">
+                                                        &nbsp;</div>
+                                                </td>
+                                                <td align="right">
+                                                    &nbsp;</td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                    <td style="width: 3px" rowspan="3">
+                                    </td>
+                                </tr>
+                                <tr style="height: 8px">
+                                    <td class="ipsep">
+                                    </td>
+                                </tr>
+                                <tr style="height: 30px" valign="top">
+                                    <td>
+                                        <div style="width: 100%; white-space: nowrap; overflow: hidden">
+                                            <%--<table style="width: 100%; table-layout: fixed" border="0" cellspacing="0" cellpadding="0">
+                                                <tr>
+                                                    <td>
+                                                        <span class="ip">
+                                                            <img align="absMiddle" src="/Images/template/ulstart.gif" width="12" height="16">Modül:
+                                                        </span>
+                                                    </td>
+                                                    <td style="width: 130px">
+                                                        <select style="width: 100%">
+                                                            <option selected="selected" value="109">...</option>
+                                                            <option value="">&lt;modülü seçiniz&gt;</option>
+                                                        </select>
+                                                    </td>
+                                                </tr>
+                                            </table>--%>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                        <td class="ipbr">
+                        </td>
+                        <td class="hpbl">
+                        </td>
+                        <td class="hpbrp">
+                            <table style="width: 100%; table-layout: fixed; height: 62px" class="hp" cellspacing="0"
+                                cellpadding="0">
+                                <tr style="height: 24px" valign="center">
+                                    <td style="width: 10px" rowspan="3">
+                                    </td>
+                                    <td>
+                                        <table cellspacing="0" cellpadding="0" width="100%">
+                                            <tr>
+                                                <td style="height: 19px" class="bc">
+                                                    <div>
+                                                        &nbsp;</div>
+                                                </td>
+                                                <td style="height: 19px" align="right">
+                                                    <span>
+                                                        <table border="0" cellspacing="1" cellpadding="0">
+                                                            <tr>
+                                                                <td class="tss">
+                                                                    &nbsp;&nbsp;
+                                                                    <img align="absMiddle" src="../Images/template/tba.gif">
+                                                                </td>
+                                                                <td class="tss">
+                                                                    &nbsp;&nbsp;
+                                                                    <img align="absMiddle" src="../Images/template/tba.gif">
+                                                                </td>
+                                                            </tr>
+                                                        </table>
+                                                    </span>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                    <td style="width: 8px">
+                                    </td>
+                                    <td style="width: 2px" rowspan="3">
+                                    </td>
+                                </tr>
+                                <tr class="hpsep">
+                                    <td colspan="2">
+                                    </td>
+                                </tr>
+                                <tr valign="top">
+                                    <td style="width: 100%">
+                                        <table style="width: 100%" class="ip" cellspacing="0" cellpadding="0">
+                                            <tr>
+                                                <td>
+                                                    <div>
+                                                        <span>
+                                                            <asp:ContentPlaceHolder ID="toolbar" runat="server">
+                                                            </asp:ContentPlaceHolder>
+                                                        </span>
+                                                    </div>
+                                                </td>
+                                                <td style="width: 200px" align="right">
+                                                    <%--Work Item #
+                                                    <input class="wid" title="Go to work item" maxlength="9" size="4" />
+                                                    <input title="Go to work item" value="Go!" type="button" />--%>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                    <td style="width: 8px">
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                        <td class="hpbr">
+                        </td>
+                    </tr>
+                </table>
+                <table style="width: 100%; border-collapse: collapse" border="0" cellspacing="0"
+                    cellpadding="0">
+                    <tr style="height: 480px">
+                        <td style="width: 217px" class="tplp" valign="top" align="middle">
+                            <div style="display: block">
+                                <table style="margin-top: 10px; width: 194px" cellspacing="0" cellpadding="0">
+                                    <tr>
+                                        <td style="padding-right: 2px">
+                                            &nbsp;</td>
+                                        <td style="width: 40px" align="right">
+                                            &nbsp;</td>
+                                    </tr>
+                                </table>
+                                <img style="border-right-width: 0px; width: 194px; border-top-width: 0px; border-bottom-width: 0px;
+                                    height: 19px; border-left-width: 0px" src="../Images/template/hr.gif" />
+                                
+                                <asp:ContentPlaceHolder ID="sections" runat="server">
+                                </asp:ContentPlaceHolder>
+
+                            </div>
+                        </td>
+                        <td style="width: 6px" class="spl" valign="center" align="middle">
+                            <img id="imgCollapse" title="Click to collapse" src="../Images/template/spl.gif" />
+                        </td>
+                        <td class="tpc" valign="top" align="left">
+<%--                            <div style="width: 100%" class="hd">
+                                <table style="width: 100%; border-collapse: collapse" border="0" cellspacing="0"
+                                    cellpadding="0">
+                                    <tr style="width: 100%">
+                                        <td style="width: 50%" align="left">
+                                            <div align="left">
+                                                <b>PUF</b>
+                                            </div>
+                                        </td>
+                                        <td style="width: 50%" align="right">
+                                            <img border="0" alt="" align="absMiddle" src="/Images/template/process_guidance.gif"
+                                                width="16" height="16" />
+                                            <a href="http://EBIMSC:80/Sites/PUF/Process%20Guidance/Supporting%20Files/ProcessGuidance.htm"
+                                                target="_blank">Process Guidance</a>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                            <br />
+                            <table style="width: 500px; border-collapse: collapse" border="0" cellspacing="0"
+                                cellpadding="2">
+                                <tr>
+                                    <td>
+                                        <img border="0" alt="" align="absMiddle" src="/Images/template/favorites.gif" width="16"
+                                            height="16" />
+                                        <a href="/UI/Pages/Favorites/Explorer.aspx?pid=109">Favorites</a>
+                                    </td>
+                                    <td>
+                                        <img border="0" alt="" align="absMiddle" src="/Images/template/report.gif" width="16"
+                                            height="16" />
+                                        <a href="/UI/Pages/Reports/Explorer.aspx?pid=109">Reports</a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <img border="0" alt="" align="absMiddle" src="/Images/template/query.gif" width="16"
+                                            height="16" />
+                                        <a href="/UI/Pages/WorkItems/QueryExplorer.aspx?pid=109&amp;type=2">My Queries</a>
+                                    </td>
+                                    <td>
+                                        <img border="0" alt="" align="absMiddle" src="/Images/template/documents.gif" width="16"
+                                            height="16" />
+                                        <a href="/UI/Pages/Documents/Explorer.aspx?pid=109">Documents</a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <img border="0" alt="" align="absMiddle" src="/Images/template/query.gif" width="16"
+                                            height="16" />
+                                        <a href="/UI/Pages/WorkItems/QueryExplorer.aspx?pid=109&amp;type=1">Team Queries</a>
+                                    </td>
+                                    <td>
+                                        <img border="0" alt="" align="absMiddle" src="/Images/template/source-files.gif"
+                                            width="16" height="16" />
+                                        <a href="/UI/Pages/Scc/Explorer.aspx?pid=109">Source Control</a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <img border="0" alt="" align="absMiddle" src="/Images/template/build.gif" width="16"
+                                            height="16" />
+                                        <a href="/UI/Pages/Build/Explorer.aspx?pid=109">Team Build</a>
+                                    </td>
+                                </tr>
+                            </table>
+                            <table style="margin-top: 12px; width: 100%; border-collapse: collapse" border="0"
+                                cellspacing="0" cellpadding="2">
+                                <tr>
+                                    <td>
+                                        <b><a href="/UI/Pages/WorkItems/QueryResult.aspx?pid=109&amp;qid=my">WI's Assigned to
+                                            Me</a></b> &nbsp; <span>
+                                                <img alt="" style="width: 16px; height: 16px" title="" align="absMiddle" src="/Images/template/space.gif" />
+                                            </span>&nbsp; [<a href="#">Refresh</a>]
+                                    </td>
+                                    <td style="width: 150px" align="right">
+                                        <span class="bd">(<a href="/UI/Pages/Tools/WIsAssignedToMeSettings.aspx?urlreferrer=http%3a%2f%2f100.100.100.6%3a8090%2fIndex.aspx%3fpid%3d109">Customize</a>)
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td colspan="2">
+                                        <hr class="sep" />
+                                    </td>
+                                </tr>
+                            </table>
+                            <input value='{"needsUpdate":false}' type="hidden" />
+                            <div>
+                                <table style="width: 100%; border-collapse: collapse; table-layout: fixed" border="0"
+                                    cellspacing="0" cellpadding="2">
+                                    <tr valign="top">
+                                        <td class="rbnl">
+                                            There are no work items assigned to me.
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                            <table style="width: 540px; border-collapse: collapse" border="0" cellspacing="0"
+                                cellpadding="2">
+                            </table>--%>
+                            <asp:ContentPlaceHolder ID="content" runat="server">
+                            </asp:ContentPlaceHolder>
+
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <img style="border-right-width: 0px; width: 1000px; border-top-width: 0px; border-bottom-width: 0px;
+                    height: 1px; border-left-width: 0px" id="ctl00_imgPlacer" src="../Images/template/nil.gif">
+            </td>
+        </tr>
+    </table>
+    </form>
+</body>
+</html>

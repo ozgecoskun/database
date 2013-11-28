@@ -1,0 +1,96 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 12, 12.25" name="MalzemeDbContext">
+  <DataContextMoniker Name="/MalzemeDbContextDataContext" />
+  <nestedChildShapes>
+    <classShape Id="203272b0-136e-414d-8ecc-dea89d178bfd" absoluteBounds="3.75, 0.75, 2, 1.1939925130208335">
+      <DataClassMoniker Name="/MalzemeDbContextDataContext/tDgrTipi" />
+      <nestedChildShapes>
+        <elementListCompartment Id="64ef74b2-c738-4f45-b3e5-10081d17aaf4" absoluteBounds="3.765, 1.21, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="c9233a2c-9f9c-4187-9e25-47f6ac849706" absoluteBounds="3.75, 2.75, 2, 1.1939925130208335">
+      <DataClassMoniker Name="/MalzemeDbContextDataContext/tUY" />
+      <nestedChildShapes>
+        <elementListCompartment Id="da075cee-9188-420b-982f-2ccda0ad8425" absoluteBounds="3.765, 3.21, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="076b1593-d981-4be2-8bdc-911d19092f96" absoluteBounds="0.75, 4.75, 2, 1.1939925130208344">
+      <DataClassMoniker Name="/MalzemeDbContextDataContext/tKarMerkezi" />
+      <nestedChildShapes>
+        <elementListCompartment Id="66c14390-83d5-419b-91e9-845f32fa32fe" absoluteBounds="0.765, 5.21, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="85f7db38-218f-4086-9cf1-82236ea59d2c" absoluteBounds="3.75, 4.75, 2, 1.1939925130208344">
+      <DataClassMoniker Name="/MalzemeDbContextDataContext/tKDV" />
+      <nestedChildShapes>
+        <elementListCompartment Id="1db61ab6-2e17-4ec6-b26f-601d9fe1332b" absoluteBounds="3.765, 5.21, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="40b1ae08-70d4-406b-a57b-bd2af682b835" absoluteBounds="6.75, 0.75, 2, 1.3862939453125003">
+      <DataClassMoniker Name="/MalzemeDbContextDataContext/tMalGrubu" />
+      <nestedChildShapes>
+        <elementListCompartment Id="a65a1996-7eef-4fc0-848d-aefeb2b6e848" absoluteBounds="6.765, 1.21, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="3a198551-df98-414e-a395-b73cc8590d64" absoluteBounds="0.75, 6.75, 2, 1.1939925130208344">
+      <DataClassMoniker Name="/MalzemeDbContextDataContext/tMipKrk" />
+      <nestedChildShapes>
+        <elementListCompartment Id="abd929ee-3ddc-46b7-8d71-fe3939585294" absoluteBounds="0.765, 7.21, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="f3ba5ddb-e49f-4b62-9854-86b236546259" absoluteBounds="6.75, 3.75, 2, 1.193992513020834">
+      <DataClassMoniker Name="/MalzemeDbContextDataContext/tMipSrmlu" />
+      <nestedChildShapes>
+        <elementListCompartment Id="4a56c344-3712-478d-91dd-bba686a6e4db" absoluteBounds="6.765, 4.21, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="fe1cf108-af8f-42fc-a81e-f7e33b25d621" absoluteBounds="0.75, 0.75, 2, 2.9247054036458326">
+      <DataClassMoniker Name="/MalzemeDbContextDataContext/tMlzBaslik" />
+      <nestedChildShapes>
+        <elementListCompartment Id="1cf1ce48-b6c5-463f-963f-759521cf6637" absoluteBounds="0.765, 1.21, 1.9700000000000002, 2.364705403645833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="bcd5397d-4e9e-4f3e-8c8c-02554dd06628" absoluteBounds="3.75, 6.75, 2, 2.7324039713541666">
+      <DataClassMoniker Name="/MalzemeDbContextDataContext/tMlzFin" />
+      <nestedChildShapes>
+        <elementListCompartment Id="2ab7bec9-3922-445f-bd9f-fb498bdb95cb" absoluteBounds="3.765, 7.21, 1.9700000000000002, 2.1724039713541665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="5ff32104-eea1-48aa-b3b8-98e7b10b4640" absoluteBounds="6.75, 5.75, 2, 4.6554182942708318">
+      <DataClassMoniker Name="/MalzemeDbContextDataContext/tMlzGenel" />
+      <nestedChildShapes>
+        <elementListCompartment Id="22692328-d8e1-4c1f-93d7-57badf86d06a" absoluteBounds="6.765, 6.21, 1.9700000000000002, 4.095418294270833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="cf729e4e-000c-48dd-a416-6d52583e41f0" absoluteBounds="9.75, 0.75, 2, 3.3093082682291666">
+      <DataClassMoniker Name="/MalzemeDbContextDataContext/tMlzSat" />
+      <nestedChildShapes>
+        <elementListCompartment Id="00e58d7d-c1b7-43b4-ac0f-a1b67e0f8d65" absoluteBounds="9.765, 1.21, 1.9700000000000002, 2.7493082682291665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="cc0380b8-4eb0-4826-a267-ef7e1ea38950" absoluteBounds="9.75, 5.75, 2, 1.1939925130208344">
+      <DataClassMoniker Name="/MalzemeDbContextDataContext/tMlzTurleri" />
+      <nestedChildShapes>
+        <elementListCompartment Id="47a60ce8-fe7f-4be3-bcd4-51ad543c686e" absoluteBounds="9.765, 6.21, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="58f0b6cb-5a6a-4201-94b1-0d5066efce56" absoluteBounds="9.75, 7.75, 2, 1.1939925130208344">
+      <DataClassMoniker Name="/MalzemeDbContextDataContext/tOnayDurum" />
+      <nestedChildShapes>
+        <elementListCompartment Id="0bec1e3a-650c-43f3-95ac-c7e99cdfc07f" absoluteBounds="9.765, 8.21, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="9b347b2d-4d18-40f8-8b6f-0cdbc50b5555" absoluteBounds="9.75, 9.75, 2, 1.1939925130208344">
+      <DataClassMoniker Name="/MalzemeDbContextDataContext/tTdrkTuru" />
+      <nestedChildShapes>
+        <elementListCompartment Id="265007a1-3481-49d9-a0f0-3e81d83b1bac" absoluteBounds="9.765, 10.21, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="e42a731f-d0d9-486f-9ef3-4d1917cc178b" absoluteBounds="0.75, 10.75, 2, 1.1939925130208344">
+      <DataClassMoniker Name="/MalzemeDbContextDataContext/tTOB" />
+      <nestedChildShapes>
+        <elementListCompartment Id="365223db-9edc-4a58-a1ff-04086311e6b6" absoluteBounds="0.765, 11.21, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>
