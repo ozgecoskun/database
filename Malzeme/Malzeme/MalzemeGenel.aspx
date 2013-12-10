@@ -26,7 +26,7 @@
 <asp:Content ID="Content4" ContentPlaceHolderID="content" runat="server">
     <table class="auto-style1">
         <tr>
-            <td class="auto-style5" colspan="2">
+            <td class="auto-style5" colspan="3">
                 <asp:Label ID="Label1" runat="server" Text="Malzeme Kodu"></asp:Label>
             </td>
             <td class="auto-style5">
@@ -40,7 +40,7 @@
             </td>
         </tr>
         <tr>
-            <td class="auto-style5" colspan="2">
+            <td class="auto-style5" colspan="3">
                 <asp:Label ID="Label2" runat="server" Text="Malzeme Türü"></asp:Label>
             </td>
             <td class="auto-style5">
@@ -55,7 +55,7 @@
             </td>
         </tr>
         <tr>
-            <td class="auto-style6" colspan="2">
+            <td class="auto-style6" colspan="3">
                 <asp:Label ID="Label3" runat="server" Text="Üretim Yeri"></asp:Label>
             </td>
             <td class="auto-style6">
@@ -70,7 +70,7 @@
             </td>
         </tr>
         <tr>
-            <td class="auto-style5" colspan="2">
+            <td class="auto-style5" colspan="3">
                 <asp:Label ID="Label4" runat="server" Text="Depo Yeri"></asp:Label>
             </td>
             <td class="auto-style5">
@@ -84,7 +84,7 @@
             </td>
         </tr>
         <tr>
-            <td class="auto-style5" colspan="2">
+            <td class="auto-style5" colspan="3">
                 <asp:Label ID="Label5" runat="server" Text="Malzeme Kısa Metni (TR)"></asp:Label>
             </td>
             <td class="auto-style5">
@@ -98,7 +98,7 @@
             </td>
         </tr>
         <tr>
-            <td class="auto-style5" colspan="2">
+            <td class="auto-style5" colspan="3">
                 <asp:Label ID="Label6" runat="server" Text="Temel Ölçü Birimi"></asp:Label>
             </td>
             <td class="auto-style5">
@@ -113,7 +113,7 @@
             </td>
         </tr>
         <tr>
-            <td class="auto-style5" colspan="2">
+            <td class="auto-style5" colspan="3">
                 <asp:Label ID="Label7" runat="server" Text="Mal Grubu"></asp:Label>
             </td>
             <td class="auto-style5">
@@ -128,7 +128,7 @@
             </td>
         </tr>
         <tr>
-            <td class="auto-style5" colspan="2">
+            <td class="auto-style5" colspan="3">
                 <asp:Label ID="Label8" runat="server" Text="MIP Karakteristiği "></asp:Label>
             </td>
             <td class="auto-style5">
@@ -143,7 +143,7 @@
             </td>
         </tr>
         <tr>
-            <td class="auto-style5" colspan="2">
+            <td class="auto-style5" colspan="3">
                 <asp:Label ID="Label9" runat="server" Text="MIP Sorumlusu"></asp:Label>
             </td>
             <td class="auto-style5">
@@ -153,12 +153,12 @@
             <td class="auto-style5">
                 Onay Durumu</td>
             <td>
-                <asp:DropDownList ID="ddlOnayDurum" runat="server" DataTextField="OnayDurum" DataValueField="Id">
+                <asp:DropDownList ID="ddlOnayDurum" runat="server" DataTextField="OnayDurum" Enabled="true" DataValueField="Id" Height="16px">
                 </asp:DropDownList>
             </td>
         </tr>
         <tr>
-            <td class="auto-style6" colspan="2">
+            <td class="auto-style6" colspan="3">
                 <asp:Label ID="Label10" runat="server" Text="MIP Parti Büyüklüğü"></asp:Label>
             </td>
             <td class="auto-style6">
@@ -170,7 +170,7 @@
                 </td>
         </tr>
         <tr>
-            <td class="auto-style5" colspan="2">
+            <td class="auto-style5" colspan="3">
                 <asp:Label ID="Label11" runat="server" Text="Tedarik Türü"></asp:Label>
             </td>
             <td class="auto-style5">
@@ -183,7 +183,7 @@
                 &nbsp;</td>
         </tr>
         <tr>
-            <td class="auto-style5" colspan="2">
+            <td class="auto-style5" colspan="3">
                 &nbsp;</td>
             <td class="auto-style5">
                 &nbsp;</td>
@@ -194,17 +194,22 @@
         </tr>
         <tr>
             <td class="auto-style5">
-                &nbsp;</td>
-            <td class="auto-style8">
                 <asp:Button ID="btnKaydet" runat="server" Text="Kaydet" OnClick="btnKaydet_Click" />
             </td>
             <td class="auto-style5">
+                <asp:Button ID="btnGonder" runat="server" style="margin-left: 0px" Text="Mail Gönder" OnClick="btnGonder_Click" />
+            </td>
+            <td class="auto-style8">
                 &nbsp;</td>
             <td class="auto-style5">
-                <asp:Button ID="btnYeniKayit" runat="server" Text="Yeni Kayıt" OnClick="btnYeniKayit_Click" />
+                <asp:Button ID="btnOnay" runat="server" Text="Onay" OnClick="btnOnay_Click"   />
+            </td>
+            <td class="auto-style5">
+                <asp:Button ID="btnSatinAlma" runat="server" Text="Satın Alma" OnClick="btnSatinAlma_Click"  />
             </td>
             <td>
-                &nbsp;</td>
+                <asp:Button ID="btnFinans" runat="server" Text="Finans" OnClick="btnFinans_Click" />
+            </td>
         </tr>
     </table>
 </asp:Content>

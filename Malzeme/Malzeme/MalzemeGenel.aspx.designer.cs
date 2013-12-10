@@ -373,12 +373,39 @@ namespace Malzeme {
         protected global::System.Web.UI.WebControls.Button btnKaydet;
         
         /// <summary>
-        /// btnYeniKayit control.
+        /// btnGonder control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnYeniKayit;
+        protected global::System.Web.UI.WebControls.Button btnGonder;
+        
+        /// <summary>
+        /// btnOnay control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnOnay;
+        
+        /// <summary>
+        /// btnSatinAlma control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnSatinAlma;
+        
+        /// <summary>
+        /// btnFinans control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnFinans;
     }
 }

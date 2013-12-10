@@ -1,15 +1,29 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="dbmalzeme" Class="MalzemeDbContextDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
   <Connection Mode="WebSettings" ConnectionString="Data Source=OZGE;Initial Catalog=dbmalzeme;Integrated Security=True" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="dbmalzemeConnectionString" Provider="System.Data.SqlClient" />
-  <Table Name="dbo.tDgrTipi" Member="tDgrTipis">
-    <Type Name="tDgrTipi">
+  <Table Name="dbo.tBolumler" Member="tBolumlers">
+    <Type Name="tBolumler">
       <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="DegerlemeTipi" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="Bolumler" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Association Name="tBolumler_tKullaniciBilgi" Member="tKullaniciBilgis" ThisKey="Id" OtherKey="BolumlerID" Type="tKullaniciBilgi" />
     </Type>
   </Table>
   <Table Name="dbo.tUY" Member="tUYs">
     <Type Name="tUY">
       <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="UYAdi" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tDgrTipi" Member="tDgrTipis">
+    <Type Name="tDgrTipi">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="DegerlemeTipi" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tKarakterisrik" Member="tKarakterisriks">
+    <Type Name="tKarakterisrik">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="KarakteristikAdi" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="IdSiniflar" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
     </Type>
   </Table>
   <Table Name="dbo.tKarMerkezi" Member="tKarMerkezis">
@@ -22,6 +36,33 @@
     <Type Name="tKDV">
       <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="KDV" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tKullaniciBilgi" Member="tKullaniciBilgis">
+    <Type Name="tKullaniciBilgi">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="KullaniciAdi" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Sifre" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Email" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="BolumlerID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="tBolumler_tKullaniciBilgi" Member="tBolumler" ThisKey="BolumlerID" OtherKey="Id" Type="tBolumler" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tKullanicilar" Member="tKullanicilars">
+    <Type Name="tKullanicilar">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="[Ad Soyad]" Member="Ad_Soyad" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="[Yetki Grubu]" Member="Yetki_Grubu" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="[e-mail Adesi]" Member="e_mail_Adesi" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Association Name="tKullanicilar_tLoginGiris1" Member="tLoginGiris1" ThisKey="Id" OtherKey="Id" Type="tLoginGiris1" Cardinality="One" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tLoginGiris1" Member="tLoginGiris1s">
+    <Type Name="tLoginGiris1">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="[Kullanici adi]" Member="Kullanici_adi" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Sifre" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="tKullanicilar_tLoginGiris1" Member="tKullanicilar" ThisKey="Id" OtherKey="Id" Type="tKullanicilar" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.tMalGrubu" Member="tMalGrubus">
@@ -94,6 +135,7 @@
       <Column Name="KayitTarihi" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
       <Column Name="GuncelleyenKullanici" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
       <Column Name="GuncellemeTarihi" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="IdOnayDurumu" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
     </Type>
   </Table>
   <Table Name="dbo.tMlzSat" Member="tMlzSats">
@@ -123,6 +165,12 @@
     <Type Name="tOnayDurum">
       <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="OnayDurum" Type="System.String" DbType="VarChar(500) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tSiniflar" Member="tSiniflars">
+    <Type Name="tSiniflar">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="SinifAdi" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
     </Type>
   </Table>
   <Table Name="dbo.tTdrkTuru" Member="tTdrkTurus">

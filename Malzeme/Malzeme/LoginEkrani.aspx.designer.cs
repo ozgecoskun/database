@@ -10,7 +10,7 @@
 namespace Malzeme {
     
     
-    public partial class AramaSayfasi {
+    public partial class LoginEkranii {
         
         /// <summary>
         /// Label1 control.
@@ -22,13 +22,13 @@ namespace Malzeme {
         protected global::System.Web.UI.WebControls.Label Label1;
         
         /// <summary>
-        /// txtMalzemeKodu control.
+        /// txtKullaniciAdi control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtMalzemeKodu;
+        protected global::System.Web.UI.WebControls.TextBox txtKullaniciAdi;
         
         /// <summary>
         /// Label2 control.
@@ -40,30 +40,48 @@ namespace Malzeme {
         protected global::System.Web.UI.WebControls.Label Label2;
         
         /// <summary>
-        /// txtBolum control.
+        /// txtSifre control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtBolum;
+        protected global::System.Web.UI.WebControls.TextBox txtSifre;
         
         /// <summary>
-        /// btnAra control.
+        /// lbBilgi control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnAra;
+        protected global::System.Web.UI.WebControls.Label lbBilgi;
         
         /// <summary>
-        /// grdListe control.
+        /// btnGiris control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView grdListe;
+        protected global::System.Web.UI.WebControls.Button btnGiris;
+        
+        /// <summary>
+        /// btnYeniKayit control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnYeniKayit;
+        
+        /// <summary>
+        /// btnCokla control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnCokla;
     }
 }

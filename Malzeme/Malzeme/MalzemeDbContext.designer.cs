@@ -30,18 +30,33 @@ namespace Malzeme
 		
     #region Extensibility Method Definitions
     partial void OnCreated();
-    partial void InserttDgrTipi(tDgrTipi instance);
-    partial void UpdatetDgrTipi(tDgrTipi instance);
-    partial void DeletetDgrTipi(tDgrTipi instance);
+    partial void InserttBolumler(tBolumler instance);
+    partial void UpdatetBolumler(tBolumler instance);
+    partial void DeletetBolumler(tBolumler instance);
     partial void InserttUY(tUY instance);
     partial void UpdatetUY(tUY instance);
     partial void DeletetUY(tUY instance);
+    partial void InserttDgrTipi(tDgrTipi instance);
+    partial void UpdatetDgrTipi(tDgrTipi instance);
+    partial void DeletetDgrTipi(tDgrTipi instance);
+    partial void InserttKarakterisrik(tKarakterisrik instance);
+    partial void UpdatetKarakterisrik(tKarakterisrik instance);
+    partial void DeletetKarakterisrik(tKarakterisrik instance);
     partial void InserttKarMerkezi(tKarMerkezi instance);
     partial void UpdatetKarMerkezi(tKarMerkezi instance);
     partial void DeletetKarMerkezi(tKarMerkezi instance);
     partial void InserttKDV(tKDV instance);
     partial void UpdatetKDV(tKDV instance);
     partial void DeletetKDV(tKDV instance);
+    partial void InserttKullaniciBilgi(tKullaniciBilgi instance);
+    partial void UpdatetKullaniciBilgi(tKullaniciBilgi instance);
+    partial void DeletetKullaniciBilgi(tKullaniciBilgi instance);
+    partial void InserttKullanicilar(tKullanicilar instance);
+    partial void UpdatetKullanicilar(tKullanicilar instance);
+    partial void DeletetKullanicilar(tKullanicilar instance);
+    partial void InserttLoginGiris1(tLoginGiris1 instance);
+    partial void UpdatetLoginGiris1(tLoginGiris1 instance);
+    partial void DeletetLoginGiris1(tLoginGiris1 instance);
     partial void InserttMalGrubu(tMalGrubu instance);
     partial void UpdatetMalGrubu(tMalGrubu instance);
     partial void DeletetMalGrubu(tMalGrubu instance);
@@ -69,6 +84,9 @@ namespace Malzeme
     partial void InserttOnayDurum(tOnayDurum instance);
     partial void UpdatetOnayDurum(tOnayDurum instance);
     partial void DeletetOnayDurum(tOnayDurum instance);
+    partial void InserttSiniflar(tSiniflar instance);
+    partial void UpdatetSiniflar(tSiniflar instance);
+    partial void DeletetSiniflar(tSiniflar instance);
     partial void InserttTdrkTuru(tTdrkTuru instance);
     partial void UpdatetTdrkTuru(tTdrkTuru instance);
     partial void DeletetTdrkTuru(tTdrkTuru instance);
@@ -107,11 +125,11 @@ namespace Malzeme
 			OnCreated();
 		}
 		
-		public System.Data.Linq.Table<tDgrTipi> tDgrTipis
+		public System.Data.Linq.Table<tBolumler> tBolumlers
 		{
 			get
 			{
-				return this.GetTable<tDgrTipi>();
+				return this.GetTable<tBolumler>();
 			}
 		}
 		
@@ -120,6 +138,22 @@ namespace Malzeme
 			get
 			{
 				return this.GetTable<tUY>();
+			}
+		}
+		
+		public System.Data.Linq.Table<tDgrTipi> tDgrTipis
+		{
+			get
+			{
+				return this.GetTable<tDgrTipi>();
+			}
+		}
+		
+		public System.Data.Linq.Table<tKarakterisrik> tKarakterisriks
+		{
+			get
+			{
+				return this.GetTable<tKarakterisrik>();
 			}
 		}
 		
@@ -136,6 +170,30 @@ namespace Malzeme
 			get
 			{
 				return this.GetTable<tKDV>();
+			}
+		}
+		
+		public System.Data.Linq.Table<tKullaniciBilgi> tKullaniciBilgis
+		{
+			get
+			{
+				return this.GetTable<tKullaniciBilgi>();
+			}
+		}
+		
+		public System.Data.Linq.Table<tKullanicilar> tKullanicilars
+		{
+			get
+			{
+				return this.GetTable<tKullanicilar>();
+			}
+		}
+		
+		public System.Data.Linq.Table<tLoginGiris1> tLoginGiris1s
+		{
+			get
+			{
+				return this.GetTable<tLoginGiris1>();
 			}
 		}
 		
@@ -211,6 +269,14 @@ namespace Malzeme
 			}
 		}
 		
+		public System.Data.Linq.Table<tSiniflar> tSiniflars
+		{
+			get
+			{
+				return this.GetTable<tSiniflar>();
+			}
+		}
+		
 		public System.Data.Linq.Table<tTdrkTuru> tTdrkTurus
 		{
 			get
@@ -224,6 +290,206 @@ namespace Malzeme
 			get
 			{
 				return this.GetTable<tTOB>();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.tBolumler")]
+	public partial class tBolumler : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _Id;
+		
+		private string _Bolumler;
+		
+		private EntitySet<tKullaniciBilgi> _tKullaniciBilgis;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnIdChanging(int value);
+    partial void OnIdChanged();
+    partial void OnBolumlerChanging(string value);
+    partial void OnBolumlerChanged();
+    #endregion
+		
+		public tBolumler()
+		{
+			this._tKullaniciBilgis = new EntitySet<tKullaniciBilgi>(new Action<tKullaniciBilgi>(this.attach_tKullaniciBilgis), new Action<tKullaniciBilgi>(this.detach_tKullaniciBilgis));
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int Id
+		{
+			get
+			{
+				return this._Id;
+			}
+			set
+			{
+				if ((this._Id != value))
+				{
+					this.OnIdChanging(value);
+					this.SendPropertyChanging();
+					this._Id = value;
+					this.SendPropertyChanged("Id");
+					this.OnIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Bolumler", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string Bolumler
+		{
+			get
+			{
+				return this._Bolumler;
+			}
+			set
+			{
+				if ((this._Bolumler != value))
+				{
+					this.OnBolumlerChanging(value);
+					this.SendPropertyChanging();
+					this._Bolumler = value;
+					this.SendPropertyChanged("Bolumler");
+					this.OnBolumlerChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="tBolumler_tKullaniciBilgi", Storage="_tKullaniciBilgis", ThisKey="Id", OtherKey="BolumlerID")]
+		public EntitySet<tKullaniciBilgi> tKullaniciBilgis
+		{
+			get
+			{
+				return this._tKullaniciBilgis;
+			}
+			set
+			{
+				this._tKullaniciBilgis.Assign(value);
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_tKullaniciBilgis(tKullaniciBilgi entity)
+		{
+			this.SendPropertyChanging();
+			entity.tBolumler = this;
+		}
+		
+		private void detach_tKullaniciBilgis(tKullaniciBilgi entity)
+		{
+			this.SendPropertyChanging();
+			entity.tBolumler = null;
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.tUY")]
+	public partial class tUY : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _Id;
+		
+		private string _UYAdi;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnIdChanging(int value);
+    partial void OnIdChanged();
+    partial void OnUYAdiChanging(string value);
+    partial void OnUYAdiChanged();
+    #endregion
+		
+		public tUY()
+		{
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int Id
+		{
+			get
+			{
+				return this._Id;
+			}
+			set
+			{
+				if ((this._Id != value))
+				{
+					this.OnIdChanging(value);
+					this.SendPropertyChanging();
+					this._Id = value;
+					this.SendPropertyChanged("Id");
+					this.OnIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UYAdi", DbType="VarChar(100) NOT NULL", CanBeNull=false)]
+		public string UYAdi
+		{
+			get
+			{
+				return this._UYAdi;
+			}
+			set
+			{
+				if ((this._UYAdi != value))
+				{
+					this.OnUYAdiChanging(value);
+					this.SendPropertyChanging();
+					this._UYAdi = value;
+					this.SendPropertyChanged("UYAdi");
+					this.OnUYAdiChanged();
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
 		}
 	}
@@ -314,15 +580,17 @@ namespace Malzeme
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.tUY")]
-	public partial class tUY : INotifyPropertyChanging, INotifyPropertyChanged
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.tKarakterisrik")]
+	public partial class tKarakterisrik : INotifyPropertyChanging, INotifyPropertyChanged
 	{
 		
 		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
 		
 		private int _Id;
 		
-		private string _UYAdi;
+		private string _KarakteristikAdi;
+		
+		private int _IdSiniflar;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -330,11 +598,13 @@ namespace Malzeme
     partial void OnCreated();
     partial void OnIdChanging(int value);
     partial void OnIdChanged();
-    partial void OnUYAdiChanging(string value);
-    partial void OnUYAdiChanged();
+    partial void OnKarakteristikAdiChanging(string value);
+    partial void OnKarakteristikAdiChanged();
+    partial void OnIdSiniflarChanging(int value);
+    partial void OnIdSiniflarChanged();
     #endregion
 		
-		public tUY()
+		public tKarakterisrik()
 		{
 			OnCreated();
 		}
@@ -359,22 +629,42 @@ namespace Malzeme
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UYAdi", DbType="VarChar(100) NOT NULL", CanBeNull=false)]
-		public string UYAdi
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_KarakteristikAdi", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string KarakteristikAdi
 		{
 			get
 			{
-				return this._UYAdi;
+				return this._KarakteristikAdi;
 			}
 			set
 			{
-				if ((this._UYAdi != value))
+				if ((this._KarakteristikAdi != value))
 				{
-					this.OnUYAdiChanging(value);
+					this.OnKarakteristikAdiChanging(value);
 					this.SendPropertyChanging();
-					this._UYAdi = value;
-					this.SendPropertyChanged("UYAdi");
-					this.OnUYAdiChanged();
+					this._KarakteristikAdi = value;
+					this.SendPropertyChanged("KarakteristikAdi");
+					this.OnKarakteristikAdiChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdSiniflar", DbType="Int NOT NULL")]
+		public int IdSiniflar
+		{
+			get
+			{
+				return this._IdSiniflar;
+			}
+			set
+			{
+				if ((this._IdSiniflar != value))
+				{
+					this.OnIdSiniflarChanging(value);
+					this.SendPropertyChanging();
+					this._IdSiniflar = value;
+					this.SendPropertyChanged("IdSiniflar");
+					this.OnIdSiniflarChanged();
 				}
 			}
 		}
@@ -547,6 +837,522 @@ namespace Malzeme
 					this._KDV = value;
 					this.SendPropertyChanged("KDV");
 					this.OnKDVChanged();
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.tKullaniciBilgi")]
+	public partial class tKullaniciBilgi : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _Id;
+		
+		private string _KullaniciAdi;
+		
+		private string _Sifre;
+		
+		private string _Email;
+		
+		private int _BolumlerID;
+		
+		private EntityRef<tBolumler> _tBolumler;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnIdChanging(int value);
+    partial void OnIdChanged();
+    partial void OnKullaniciAdiChanging(string value);
+    partial void OnKullaniciAdiChanged();
+    partial void OnSifreChanging(string value);
+    partial void OnSifreChanged();
+    partial void OnEmailChanging(string value);
+    partial void OnEmailChanged();
+    partial void OnBolumlerIDChanging(int value);
+    partial void OnBolumlerIDChanged();
+    #endregion
+		
+		public tKullaniciBilgi()
+		{
+			this._tBolumler = default(EntityRef<tBolumler>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int Id
+		{
+			get
+			{
+				return this._Id;
+			}
+			set
+			{
+				if ((this._Id != value))
+				{
+					this.OnIdChanging(value);
+					this.SendPropertyChanging();
+					this._Id = value;
+					this.SendPropertyChanged("Id");
+					this.OnIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_KullaniciAdi", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string KullaniciAdi
+		{
+			get
+			{
+				return this._KullaniciAdi;
+			}
+			set
+			{
+				if ((this._KullaniciAdi != value))
+				{
+					this.OnKullaniciAdiChanging(value);
+					this.SendPropertyChanging();
+					this._KullaniciAdi = value;
+					this.SendPropertyChanged("KullaniciAdi");
+					this.OnKullaniciAdiChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Sifre", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string Sifre
+		{
+			get
+			{
+				return this._Sifre;
+			}
+			set
+			{
+				if ((this._Sifre != value))
+				{
+					this.OnSifreChanging(value);
+					this.SendPropertyChanging();
+					this._Sifre = value;
+					this.SendPropertyChanged("Sifre");
+					this.OnSifreChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Email", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string Email
+		{
+			get
+			{
+				return this._Email;
+			}
+			set
+			{
+				if ((this._Email != value))
+				{
+					this.OnEmailChanging(value);
+					this.SendPropertyChanging();
+					this._Email = value;
+					this.SendPropertyChanged("Email");
+					this.OnEmailChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BolumlerID", DbType="Int NOT NULL")]
+		public int BolumlerID
+		{
+			get
+			{
+				return this._BolumlerID;
+			}
+			set
+			{
+				if ((this._BolumlerID != value))
+				{
+					if (this._tBolumler.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnBolumlerIDChanging(value);
+					this.SendPropertyChanging();
+					this._BolumlerID = value;
+					this.SendPropertyChanged("BolumlerID");
+					this.OnBolumlerIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="tBolumler_tKullaniciBilgi", Storage="_tBolumler", ThisKey="BolumlerID", OtherKey="Id", IsForeignKey=true)]
+		public tBolumler tBolumler
+		{
+			get
+			{
+				return this._tBolumler.Entity;
+			}
+			set
+			{
+				tBolumler previousValue = this._tBolumler.Entity;
+				if (((previousValue != value) 
+							|| (this._tBolumler.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._tBolumler.Entity = null;
+						previousValue.tKullaniciBilgis.Remove(this);
+					}
+					this._tBolumler.Entity = value;
+					if ((value != null))
+					{
+						value.tKullaniciBilgis.Add(this);
+						this._BolumlerID = value.Id;
+					}
+					else
+					{
+						this._BolumlerID = default(int);
+					}
+					this.SendPropertyChanged("tBolumler");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.tKullanicilar")]
+	public partial class tKullanicilar : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _Id;
+		
+		private string _Ad_Soyad;
+		
+		private int _Yetki_Grubu;
+		
+		private string _e_mail_Adesi;
+		
+		private EntityRef<tLoginGiris1> _tLoginGiris1;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnIdChanging(int value);
+    partial void OnIdChanged();
+    partial void OnAd_SoyadChanging(string value);
+    partial void OnAd_SoyadChanged();
+    partial void OnYetki_GrubuChanging(int value);
+    partial void OnYetki_GrubuChanged();
+    partial void One_mail_AdesiChanging(string value);
+    partial void One_mail_AdesiChanged();
+    #endregion
+		
+		public tKullanicilar()
+		{
+			this._tLoginGiris1 = default(EntityRef<tLoginGiris1>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int Id
+		{
+			get
+			{
+				return this._Id;
+			}
+			set
+			{
+				if ((this._Id != value))
+				{
+					this.OnIdChanging(value);
+					this.SendPropertyChanging();
+					this._Id = value;
+					this.SendPropertyChanged("Id");
+					this.OnIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[Ad Soyad]", Storage="_Ad_Soyad", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string Ad_Soyad
+		{
+			get
+			{
+				return this._Ad_Soyad;
+			}
+			set
+			{
+				if ((this._Ad_Soyad != value))
+				{
+					this.OnAd_SoyadChanging(value);
+					this.SendPropertyChanging();
+					this._Ad_Soyad = value;
+					this.SendPropertyChanged("Ad_Soyad");
+					this.OnAd_SoyadChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[Yetki Grubu]", Storage="_Yetki_Grubu", DbType="Int NOT NULL")]
+		public int Yetki_Grubu
+		{
+			get
+			{
+				return this._Yetki_Grubu;
+			}
+			set
+			{
+				if ((this._Yetki_Grubu != value))
+				{
+					this.OnYetki_GrubuChanging(value);
+					this.SendPropertyChanging();
+					this._Yetki_Grubu = value;
+					this.SendPropertyChanged("Yetki_Grubu");
+					this.OnYetki_GrubuChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[e-mail Adesi]", Storage="_e_mail_Adesi", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string e_mail_Adesi
+		{
+			get
+			{
+				return this._e_mail_Adesi;
+			}
+			set
+			{
+				if ((this._e_mail_Adesi != value))
+				{
+					this.One_mail_AdesiChanging(value);
+					this.SendPropertyChanging();
+					this._e_mail_Adesi = value;
+					this.SendPropertyChanged("e_mail_Adesi");
+					this.One_mail_AdesiChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="tKullanicilar_tLoginGiris1", Storage="_tLoginGiris1", ThisKey="Id", OtherKey="Id", IsUnique=true, IsForeignKey=false)]
+		public tLoginGiris1 tLoginGiris1
+		{
+			get
+			{
+				return this._tLoginGiris1.Entity;
+			}
+			set
+			{
+				tLoginGiris1 previousValue = this._tLoginGiris1.Entity;
+				if (((previousValue != value) 
+							|| (this._tLoginGiris1.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._tLoginGiris1.Entity = null;
+						previousValue.tKullanicilar = null;
+					}
+					this._tLoginGiris1.Entity = value;
+					if ((value != null))
+					{
+						value.tKullanicilar = this;
+					}
+					this.SendPropertyChanged("tLoginGiris1");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.tLoginGiris1")]
+	public partial class tLoginGiris1 : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _Id;
+		
+		private string _Kullanici_adi;
+		
+		private int _Sifre;
+		
+		private EntityRef<tKullanicilar> _tKullanicilar;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnIdChanging(int value);
+    partial void OnIdChanged();
+    partial void OnKullanici_adiChanging(string value);
+    partial void OnKullanici_adiChanged();
+    partial void OnSifreChanging(int value);
+    partial void OnSifreChanged();
+    #endregion
+		
+		public tLoginGiris1()
+		{
+			this._tKullanicilar = default(EntityRef<tKullanicilar>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int Id
+		{
+			get
+			{
+				return this._Id;
+			}
+			set
+			{
+				if ((this._Id != value))
+				{
+					if (this._tKullanicilar.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnIdChanging(value);
+					this.SendPropertyChanging();
+					this._Id = value;
+					this.SendPropertyChanged("Id");
+					this.OnIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[Kullanici adi]", Storage="_Kullanici_adi", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string Kullanici_adi
+		{
+			get
+			{
+				return this._Kullanici_adi;
+			}
+			set
+			{
+				if ((this._Kullanici_adi != value))
+				{
+					this.OnKullanici_adiChanging(value);
+					this.SendPropertyChanging();
+					this._Kullanici_adi = value;
+					this.SendPropertyChanged("Kullanici_adi");
+					this.OnKullanici_adiChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Sifre", DbType="Int NOT NULL")]
+		public int Sifre
+		{
+			get
+			{
+				return this._Sifre;
+			}
+			set
+			{
+				if ((this._Sifre != value))
+				{
+					this.OnSifreChanging(value);
+					this.SendPropertyChanging();
+					this._Sifre = value;
+					this.SendPropertyChanged("Sifre");
+					this.OnSifreChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="tKullanicilar_tLoginGiris1", Storage="_tKullanicilar", ThisKey="Id", OtherKey="Id", IsForeignKey=true)]
+		public tKullanicilar tKullanicilar
+		{
+			get
+			{
+				return this._tKullanicilar.Entity;
+			}
+			set
+			{
+				tKullanicilar previousValue = this._tKullanicilar.Entity;
+				if (((previousValue != value) 
+							|| (this._tKullanicilar.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._tKullanicilar.Entity = null;
+						previousValue.tLoginGiris1 = null;
+					}
+					this._tKullanicilar.Entity = value;
+					if ((value != null))
+					{
+						value.tLoginGiris1 = this;
+						this._Id = value.Id;
+					}
+					else
+					{
+						this._Id = default(int);
+					}
+					this.SendPropertyChanged("tKullanicilar");
 				}
 			}
 		}
@@ -1480,6 +2286,8 @@ namespace Malzeme
 		
 		private System.DateTime _GuncellemeTarihi;
 		
+		private int _IdOnayDurumu;
+		
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
@@ -1524,6 +2332,8 @@ namespace Malzeme
     partial void OnGuncelleyenKullaniciChanged();
     partial void OnGuncellemeTarihiChanging(System.DateTime value);
     partial void OnGuncellemeTarihiChanged();
+    partial void OnIdOnayDurumuChanging(int value);
+    partial void OnIdOnayDurumuChanged();
     #endregion
 		
 		public tMlzGenel()
@@ -1927,6 +2737,26 @@ namespace Malzeme
 					this._GuncellemeTarihi = value;
 					this.SendPropertyChanged("GuncellemeTarihi");
 					this.OnGuncellemeTarihiChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdOnayDurumu", DbType="Int NOT NULL")]
+		public int IdOnayDurumu
+		{
+			get
+			{
+				return this._IdOnayDurumu;
+			}
+			set
+			{
+				if ((this._IdOnayDurumu != value))
+				{
+					this.OnIdOnayDurumuChanging(value);
+					this.SendPropertyChanging();
+					this._IdOnayDurumu = value;
+					this.SendPropertyChanged("IdOnayDurumu");
+					this.OnIdOnayDurumuChanged();
 				}
 			}
 		}
@@ -2449,6 +3279,92 @@ namespace Malzeme
 					this._OnayDurum = value;
 					this.SendPropertyChanged("OnayDurum");
 					this.OnOnayDurumChanged();
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.tSiniflar")]
+	public partial class tSiniflar : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _Id;
+		
+		private string _SinifAdi;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnIdChanging(int value);
+    partial void OnIdChanged();
+    partial void OnSinifAdiChanging(string value);
+    partial void OnSinifAdiChanged();
+    #endregion
+		
+		public tSiniflar()
+		{
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int Id
+		{
+			get
+			{
+				return this._Id;
+			}
+			set
+			{
+				if ((this._Id != value))
+				{
+					this.OnIdChanging(value);
+					this.SendPropertyChanging();
+					this._Id = value;
+					this.SendPropertyChanged("Id");
+					this.OnIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SinifAdi", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string SinifAdi
+		{
+			get
+			{
+				return this._SinifAdi;
+			}
+			set
+			{
+				if ((this._SinifAdi != value))
+				{
+					this.OnSinifAdiChanging(value);
+					this.SendPropertyChanging();
+					this._SinifAdi = value;
+					this.SendPropertyChanged("SinifAdi");
+					this.OnSinifAdiChanged();
 				}
 			}
 		}

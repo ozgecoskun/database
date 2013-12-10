@@ -42,6 +42,9 @@
         .auto-style19 {
             height: 21px;
         }
+        .auto-style20 {
+            width: 125px;
+        }
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="toolbar" runat="server">
@@ -165,7 +168,7 @@
         <tr>
             <td>
                 &nbsp;</td>
-            <td>
+            <td class="auto-style20">
                 <asp:Button ID="btnKaydet" runat="server" Text="Kaydet" OnClick="btnKaydet_Click" />
             </td>
             <td>

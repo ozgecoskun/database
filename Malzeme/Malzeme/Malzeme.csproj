@@ -104,9 +104,11 @@
     <Content Include="Images\template\tmbgrp.gif" />
     <Content Include="Images\template\ulstart.gif" />
     <Content Include="Images\template\yosilogo.png" />
+    <Content Include="LoginEkrani.aspx" />
     <Content Include="MalzemeBaslik.aspx" />
     <Content Include="MalzemeFinans.aspx" />
     <Content Include="MalzemeGenel.aspx" />
+    <Content Include="MalzemeSinifKarakteristik.aspx" />
     <Content Include="SatinAlma.aspx" />
     <Content Include="UserControls\IndependentPager.ascx" />
     <Content Include="UserControls\MainTab.ascx" />
@@ -122,7 +124,13 @@
     <Compile Include="AramaSayfasi.aspx.designer.cs">
       <DependentUpon>AramaSayfasi.aspx</DependentUpon>
     </Compile>
-    <Compile Include="ddl.cs" />
+    <Compile Include="LoginEkrani.aspx.cs">
+      <DependentUpon>LoginEkrani.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="LoginEkrani.aspx.designer.cs">
+      <DependentUpon>LoginEkrani.aspx</DependentUpon>
+    </Compile>
     <Compile Include="MalzemeBaslik.aspx.cs">
       <DependentUpon>MalzemeBaslik.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -148,6 +156,13 @@
     </Compile>
     <Compile Include="MalzemeGenel.aspx.designer.cs">
       <DependentUpon>MalzemeGenel.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="MalzemeSinifKarakteristik.aspx.cs">
+      <DependentUpon>MalzemeSinifKarakteristik.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MalzemeSinifKarakteristik.aspx.designer.cs">
+      <DependentUpon>MalzemeSinifKarakteristik.aspx</DependentUpon>
     </Compile>
     <Compile Include="MasterPages\Site.Master.cs">
       <DependentUpon>Site.Master</DependentUpon>

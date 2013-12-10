@@ -4,6 +4,8 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Net;
+using System.Net.Mail;
 
 namespace Malzeme
 {
@@ -24,18 +26,90 @@ namespace Malzeme
                 BindTedarikTuru();
                 BindOnayDurum();
 
+                ddlOnayDurum.Enabled = false;
+
                 txtKayitTarihi.Text = DateTime.Now.ToShortDateString();
+                if (Request.QueryString["MalzemeKodu"] != null)
+                {
+                    int malzemeKodu = Convert.ToInt32(Request.QueryString["MalzemeKodu"]);
+                    BindMalzemeInfo(malzemeKodu);
+                }
 
-                int id = Convert.ToInt32(Request.QueryString["id"]);
+                int statu = Convert.ToInt32(Session["UserStatu"]);
 
+                if (statu == 1)
+                {
+                    btnKaydet.Visible = true;
+                    btnOnay.Visible = true; ;
+                    btnFinans.Visible = false;
+                    btnSatinAlma.Visible = false;
+                }
+
+                if (statu == 2)
+                {
+                    btnKaydet.Visible = false;
+                    btnOnay.Visible = true;
+                    btnFinans.Visible = false;
+                    btnSatinAlma.Visible = true;
+                }
+                else if (statu == 3)
+                {
+                    btnKaydet.Visible = false;
+                    btnOnay.Visible = true;
+                    btnFinans.Visible = true;
+                    btnSatinAlma.Visible = false;
+                }
+                else if (statu == 4)
+                {
+                    btnKaydet.Visible = false;
+                    btnOnay.Visible = true;
+                    btnFinans.Visible = false;
+                    btnSatinAlma.Visible = false;
+                    btnGonder.Visible = false;
+                }
+
+
+            }
+
+            //Request.QueryString ile browserda malzeme kodunun gorulmesı sagllandı
+
+
+        }
+
+        public void BindMalzemeInfo(int malzemeKodu)
+        {
+            tMlzGenel genel = new tMlzGenel();
+            var data = dc.tMlzGenels.Where(x => x.MalzemeKodu == malzemeKodu);
+            //bu malzeme kodunu ılk buldugunu getır 
+            if (data.Count() > 0)
+            {
+                txtMalzemeKodu.Text = data.First().MalzemeKodu.ToString();
+                txtDepoYeri.Text = data.First().DepoYeri;
+                txtMalzemeKısaMetni.Text = data.First().MalzemeKısaMetni;
+                txtDepoAdresi.Text = data.First().DepoAdresi;
+                txtEmniyetStogu.Text = data.First().EmliyetStogu;
+                txtGuncellemeTarihi.Text = data.First().GuncellemeTarihi.ToString();
+                txtGuncelleyenKullanici.Text = data.First().GuncelleyenKullanici;
+                txtKaydedenKullanici.Text = data.First().KaydedenKullanici;
+                txtKayitTarihi.Text = Convert.ToString(data.First().KayitTarihi);
+                txtMalzemeKodu.Text = Convert.ToString(data.First().MalzemeKodu);
+                txtMipPartiBuyuklugu.Text = data.First().MIPPartiBuyuklugu;
+                txtUretimDenetimProfili.Text = data.First().UretimDenetimProfii;
+                txtUretimDenetimSorumlusu.Text = data.First().UretimDenetimSorumlusu;
+                ddlMalGrubu.SelectedValue = data.First().IdMalGrubu.ToString();
+                ddlMalzemeTuru.SelectedValue = data.First().IdMalzemeTuru.ToString();
+                ddlMIPKarakteristigi.SelectedValue = data.First().IdMIPKarakteristligi.ToString();
+                ddlMipSorumlusu.SelectedValue = data.First().IdMIPSorumlusu.ToString();
+                ddlTedarikTuru.SelectedValue = data.First().IdTedarikTuru.ToString();
+                ddlTemelOlcuBirimi.SelectedValue = data.First().IdTemelOlcuBirimi.ToString();
+                ddlUretimYeri.SelectedValue = data.First().IdUretimYeri.ToString();
+                ddlOnayDurum.SelectedValue = Convert.ToString(data.First().IdOnayDurumu);
+                //verileri tablodan foldurma
             }
 
 
 
         }
-
-
-
 
 
         #region Binding
@@ -99,8 +173,15 @@ namespace Malzeme
 
         #endregion
 
+        //aslında verıler kayıtlı gelıcek kaydete gerek yok
+
         protected void btnKaydet_Click(object sender, EventArgs e)
         {
+            //if (!string.IsNullOrEmpty(txtMalzemeKodu.Text))
+            //{
+            //    var varmi = dc.tMlzGenels.SingleOrDefault(deger => deger.MalzemeKodu.ToString() == txtMalzemeKodu.Text);
+            //    Response.Write("<script>alert('Veri Önceden Kayıtlı')</script>");
+            //                }
             tMlzGenel genel = new tMlzGenel
             {
                 MalzemeKodu = Convert.ToInt32(txtMalzemeKodu.Text),
@@ -122,30 +203,103 @@ namespace Malzeme
                 KayitTarihi = Convert.ToDateTime(txtKayitTarihi.Text),
                 GuncelleyenKullanici = txtGuncelleyenKullanici.Text,
                 GuncellemeTarihi = Convert.ToDateTime(DateTime.Now.ToLongDateString()),
+                IdOnayDurumu = Convert.ToInt32(ddlOnayDurum.Text)
 
             };
             dc.tMlzGenels.InsertOnSubmit(genel);
             dc.SubmitChanges();
+
         }
 
-        protected void btnYeniKayit_Click(object sender, EventArgs e)
+        protected void btnSatinAlma_Click(object sender, EventArgs e)
         {
-            //txtKaydedenKullanici.Text = " ";
-            foreach (Control t in this.Controls)
+            Response.Redirect("SatinAlma.aspx");
+        }
+
+        protected void btnFinans_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("MalzemeFinans.aspx");
+        }
+
+        private void updateOnay()
+        {
+            int statu = Convert.ToInt32(Session["UserStatu"]);
+            if (statu == 4)
             {
-                if (t is TextBox)
-                {
-                    ((TextBox)t).Text = " ";
-                }
+                Response.Write("<script>alert('Tüm Bölümlerde Onaylandı Ve Sisteme Girildi')</script>");
+            }
+            else
+            {
+                int a = int.Parse((ddlOnayDurum.SelectedItem.Value));
+                a++;
+                //sorgu ile update işlemei yapıldı girilen malzeme koduna gore secıp guncellenmesi sağlanıyor
+                var gg = dc.tMlzGenels.SingleOrDefault(onay => onay.MalzemeKodu == Convert.ToInt32(txtMalzemeKodu.Text));
+                gg.IdOnayDurumu = a;
+                dc.SubmitChanges();
+
+                ddlOnayDurum.SelectedValue = a.ToString();
+                ddlOnayDurum.Text = a.ToString();
+                btnOnay.Visible = false;
+            }
+        }
+        protected void btnOnay_Click(object sender, EventArgs e)
+        {
+            updateOnay();
+
+        }
+
+        protected void btnGonder_Click(object sender, EventArgs e)
+        {
+            int statu = Convert.ToInt32(Session["UserStatu"]);
+
+            // herkese tektek yapmadım e mail yok diye 
+
+            MailMessage mail = new MailMessage(); // mail adında MailMessage nesnesi yaratıyoruz.
+            mail.From = new MailAddress("ozge.coskun0110@gmail.com"); //Mailin kimden gittiğini belirtiyoruz
+            mail.To.Add("coskun.ozgee@gmail.com"); //Mailin kime gideceğini belirtiyoruz
+            mail.Subject = "Onayınızda Malzeme Var"; //Mail konusu
+            if (statu == 1)
+            {
+                mail.Body = "AR-GE'den onayınızda bekleyen malzeme var iyi çalışmlar..."; //Mailin içeriği
+            }
+            else if (statu == 2)
+            {
+                mail.Body = "Satın Alma Bölümün'den onayınızda bekleyen malzeme var iyi çalışmlar..."; //Mailin içeriği
+            }
+            else if (statu == 3)
+            {
+                mail.Body = "Finans Bölümün'den onayınızda bekleyen malzeme var iyi çalışmlar..."; //Mailin içeriği
             }
 
+            SmtpClient sc = new SmtpClient(); //sc adında SmtpClient nesnesi yaratıyoruz.
+            sc.Port = 587; //Gmail için geçerli Portu bildiriyoruz
+            sc.Host = "smtp.gmail.com"; //Gmailin smtp host adresini belirttik
+            sc.EnableSsl = true; //SSL’i etkinleştirdik.
+            sc.Credentials = new NetworkCredential("ozge.coskun0110@gmail.com", "11101110"); //Gmail hesap kontrolü için bilgilerimizi girdik
+            sc.Send(mail); //Mailinizi gönderiyoruz.
 
-
-
-          
         }
 
-        
 
     }
+
+
+
+
+
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
